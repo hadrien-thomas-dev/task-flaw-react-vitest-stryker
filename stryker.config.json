@@ -1,0 +1,13 @@
+{
+    "incremental": true,
+    "checkers": [
+        "typescript"
+    ],
+    "tsconfigFile": "tsconfig.json",
+    "reporters": [
+        "html",
+        "clear-text",
+        "progress",
+        "dashboard"
+    ]
+}
