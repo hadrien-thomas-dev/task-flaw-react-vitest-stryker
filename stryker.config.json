@@ -1,9 +1,14 @@
 {
+    "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+    "testRunner": "vitest",
+    "vitest": {
+        "configFile": "vitest.config.ts"
+    },
     "incremental": true,
-    "checkers": [
-        "typescript"
+    "mutate": [
+        "src/**/*.{ts,tsx}",
+        "!src/**/*.test.{ts,tsx}"
     ],
-    "tsconfigFile": "tsconfig.json",
     "reporters": [
         "html",
         "clear-text",

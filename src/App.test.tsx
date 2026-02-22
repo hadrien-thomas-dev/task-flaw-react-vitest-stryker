@@ -1,23 +1,34 @@
-import { render, screen, fireEvent } from '@testing-library/react'
-import App from './App'
-import { test, expect } from 'vitest'
-import { vi } from 'vitest'
+import { render } from '@testing-library/react'
+import { App } from './App'
+import { it, expect, vi, describe } from 'vitest'
 
-// Mock static assets to prevent path errors
-vi.mock('/vite.svg', () => ({ default: 'vite-logo' }))
-vi.mock('/react.svg', () => ({ default: 'react-logo' }))
+vi.mock('@/hooks/useTasks', () => ({
+  useTasks: () => ({
+    tasks: [],
+    addTask: vi.fn(),
+    toggleTask: vi.fn(),
+    deleteTask: vi.fn(),
+    completionPercentage: 0,
+  }),
+}))
 
-test('renders title and initial counter', () => {
-  render(<App />)
-  expect(screen.getByText(/Vite \+ React/i)).toBeDefined()
-  expect(screen.getByRole('button').textContent).toBe('count is 0')
-})
+describe('App Component', () => {
 
-test('increments counter on click', () => {
-  render(<App />)
-  const button = screen.getByRole('button')
+  it('renders TaskFlaw title', () => {
+    const { container } = render(<App />)
 
-  fireEvent.click(button)
+    const div = container.firstChild
+    expect(div).toBeInTheDocument()
 
-  expect(button.textContent).toBe('count is 1')
+    const header = div?.firstChild
+    expect(header).toBeInTheDocument()
+
+    const title = header?.firstChild as HTMLElement
+    expect(title).toBeInTheDocument()
+    expect(title.textContent).toBe('TaskFlaw')
+
+    const dashboard = div?.lastChild
+    expect(dashboard).toBeInTheDocument()
+  })
+
 })

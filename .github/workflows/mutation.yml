@@ -5,19 +5,30 @@ jobs:
   stryker:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+
+      - name: Debug file structure (Case sensitivity check)
+        run: |
+          echo "--- Listing all files in src ---"
+          find src -maxdepth 5 -not -path '*/.*'
+          echo "--- Current Working Directory ---"
+          pwd
+
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
           cache: "npm"
 
       - name: Install dependencies
         run: npm ci
 
+      - name: Run tests
+        run: npm run coverage
+
       - name: Cache Stryker Incremental
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
-          path: .stryker-tmp/incremental-report.json
+          path: reports/stryker-incremental.json
           key: stryker-${{ runner.os }}-${{ github.ref_name }}
           restore-keys: |
             stryker-${{ runner.os }}-

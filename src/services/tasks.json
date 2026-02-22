@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "text": "Complete project documentation",
+        "completed": false,
+        "priority": "high"
+    },
+    {
+        "id": 2,
+        "text": "Review pull requests",
+        "completed": true,
+        "priority": "medium"
+    },
+    {
+        "id": 3,
+        "text": "Update dependencies",
+        "completed": false,
+        "priority": "low"
+    },
+    {
+        "id": 4,
+        "text": "Write unit tests",
+        "completed": false,
+        "priority": "high"
+    },
+    {
+        "id": 5,
+        "text": "Deploy to production",
+        "completed": false,
+        "priority": "medium"
+    }
+]
