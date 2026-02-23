@@ -2,7 +2,7 @@ export interface Task {
     id: number
     text: string
     completed: boolean
-    priority: 'low' | 'medium' | 'high'
+    priority: string
 }
 
 export class TasksService {

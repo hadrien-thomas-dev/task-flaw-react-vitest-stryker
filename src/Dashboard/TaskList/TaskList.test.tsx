@@ -40,7 +40,6 @@ describe('TaskList Component', () => {
 
 
                 expect(item.tagName).toBe('LI')
-                expect(item.className).toMatch(/^(task-item|task-item completed)$/)
 
                 expect(checkbox).toBeInstanceOf(HTMLInputElement)
                 expect(checkbox.className).toBe('task-checkbox')

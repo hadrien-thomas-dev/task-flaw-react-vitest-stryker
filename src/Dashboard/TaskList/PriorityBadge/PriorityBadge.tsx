@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import './PriorityBadge.css'
 
-export const PriorityBadge: React.FC<{ priority: 'low' | 'medium' | 'high' }> = memo(({ priority }) => {
+export const PriorityBadge: React.FC<{ priority: string }> = memo(({ priority }) => {
     const getPriorityClass = (priority: string): string => {
         switch (priority) {
             case 'low':
@@ -11,7 +11,7 @@ export const PriorityBadge: React.FC<{ priority: 'low' | 'medium' | 'high' }> = 
             case 'high':
                 return 'priority-badge priority-high'
             default:
-                return 'priority-badge'
+                return ''
         }
     }
 

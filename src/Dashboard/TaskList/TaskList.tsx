@@ -12,7 +12,7 @@ interface TaskListProps {
 export const TaskList: React.FC<TaskListProps> = memo(({ tasks, onToggleComplete, onDelete }) => (
   <ul className="task-list">
     {tasks.map(task => (
-      <li key={task.id} className={`${task.completed ? 'task-item completed' : 'task-item'}`}>
+      <li key={task.id} className={`${task.completed ? 'completed' : 'task-item'}`}>
         <input
           type="checkbox"
           checked={task.completed}
